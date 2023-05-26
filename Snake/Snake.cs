@@ -48,11 +48,12 @@ namespace Snake
                 Parts[Parts.Count - 1].Length++;
                 var user = new DataBindings()
                 {
-                    Score = int.Parse(this.label2.Text),
-                }
-                using (StreamWriter writer = new StreamWriter("Score.txt"))
+                    Score = Length,
+                    UserName = "User#" + random.Next(100, 999).ToString(),
+                };
+                using (StreamWriter writer = new StreamWriter("./Score.txt"))
                 {
-                    writ
+                    writer.WriteLine(user.ToString());
                 }
             }
             return IsAlive;
