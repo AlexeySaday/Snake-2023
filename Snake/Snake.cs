@@ -17,6 +17,8 @@ namespace Snake
         public int Length => Parts.Sum(p => p.Length);
             public int HeadRow => Parts[0].StartRow;
         public int HeadCol => Parts[0].StartCol;
+
+        private readonly Random random = new ();
         
         public Snake(Field f)
         {
@@ -44,6 +46,14 @@ namespace Snake
             if (!IsAlive)
             {
                 Parts[Parts.Count - 1].Length++;
+                var user = new DataBindings()
+                {
+                    Score = int.Parse(this.label2.Text),
+                }
+                using (StreamWriter writer = new StreamWriter("Score.txt"))
+                {
+                    writ
+                }
             }
             return IsAlive;
         }
