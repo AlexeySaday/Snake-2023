@@ -51,7 +51,8 @@ namespace Snake
                     Score = Length,
                     UserName = "User#" + random.Next(100, 999).ToString(),
                 };
-                using (StreamWriter writer = new StreamWriter("./Score.txt"))
+                string path = Directory.GetCurrentDirectory() + @"\..\..\" + "Score.txt";
+                using (StreamWriter writer = new StreamWriter(path))
                 {
                     writer.WriteLine(user.ToString());
                 }
