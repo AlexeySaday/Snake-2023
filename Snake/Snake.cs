@@ -53,6 +53,7 @@ namespace Snake
                 {
                     Score = Length,
                     UserName = _username,
+                    ApplesNumber = Length - 3,
                 };
                 string path = Directory.GetCurrentDirectory() + @"\..\..\" + "Score.txt";
                 using (StreamWriter writer = new StreamWriter(path))
