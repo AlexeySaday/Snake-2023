@@ -2,11 +2,12 @@ namespace Snake
 {
     public partial class Form1 : Form
     {
-        private GameController _controller;
-        public Form1()
-        {
+        private GameController _controller; 
+
+        public Form1(string username)
+        { 
             InitializeComponent();
-            _controller = new GameController(panel1.Size);
+            _controller = new GameController(panel1.Size, username);
             _controller.EatFood += ControllerOnEatFood;
             _controller.Grow += ControllerOnGrow;
         }

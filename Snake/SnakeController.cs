@@ -22,9 +22,9 @@ namespace Snake
             get => snake;
         }
 
-        public SnakeController(SizeF containerSize, Field f)
+        public SnakeController(SizeF containerSize, Field f, string username)
         {
-            snake = new Snake(f);
+            snake = new Snake(f, username);
             snakeView = new SnakeView(containerSize, snake);
         }
 

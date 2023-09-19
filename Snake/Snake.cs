@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Snake
 {
     public class Snake
     {
         private Field _f;
+        private string _username;
         private Random rnd = new ();
         private bool shouldGrow = false;
         public bool IsAlive { get; private set; } = true;
@@ -20,10 +22,11 @@ namespace Snake
 
         private readonly Random random = new ();
         
-        public Snake(Field f)
+        public Snake(Field f, string username)
         {
             _f = f;
             SnakePart prt = new SnakePart();
+            _username = username;
             prt.Length = 3;
             prt.StartRow = rnd.Next (4, _f.RowCount - 5);
             prt.StartCol = rnd.Next(4, _f.ColumnCount - 5);
@@ -49,7 +52,7 @@ namespace Snake
                 var user = new DataBindings()
                 {
                     Score = Length,
-                    UserName = "User#" + random.Next(100, 999).ToString(),
+                    UserName = _username,
                 };
                 string path = Directory.GetCurrentDirectory() + @"\..\..\" + "Score.txt";
                 using (StreamWriter writer = new StreamWriter(path))

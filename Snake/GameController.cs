@@ -36,10 +36,10 @@ namespace Snake
 
         public Snake Snake => _snakeController.Snake;
 
-        public GameController(SizeF containerSize)
+        public GameController(SizeF containerSize, string username)
         {
             _fieldController = new FieldController(containerSize);
-            _snakeController = new SnakeController(containerSize, _fieldController.F);
+            _snakeController = new SnakeController(containerSize, _fieldController.F, username);
             _foodController = new FoodController(containerSize, _fieldController.F, _snakeController.Snake);
         }
 
